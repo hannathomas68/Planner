@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // ChatGPT
 
 import Navbar from './Pages/Navbar';
@@ -14,13 +15,15 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/calendar" element={<Calendar/>}/>
-        <Route path="/timer" element={<Timer/>}/>
-        <Route path="/encouragement" element={<Encouragement/>}/>
-        <Route path="/studyplan" element={<StudyPlan/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/Calendar" element={<Calendar/>}/>
+        <Route path="/Timer" element={<Timer/>}/>
+        <Route path="/Encouragement" element={<Encouragement/>}/>
+        <Route path="/Studyplan" element={<StudyPlan/>}/>
+        <Route path="/Login" element={<Login/>}/>
       </Routes>
+      <p>Hello world</p>
     </Router>
+    
   );
 }
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom"; // ChatGPT
 
 function Navbar(){
@@ -16,4 +17,4 @@ function Navbar(){
     );
 }
 
-export default Navbar
+export default Navbar;
