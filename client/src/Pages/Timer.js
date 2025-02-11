@@ -1,3 +1,5 @@
+import React from "react";
+
 function Timer() {
 
     return(
@@ -7,4 +9,4 @@ function Timer() {
     );
 }
 
-export default Timer
+export default Timer;

@@ -1,3 +1,5 @@
+import React from "react";
+
 function Calendar() {
 
     return(
@@ -7,4 +9,4 @@ function Calendar() {
     );
 }
 
-export default Calendar
+export default Calendar;

@@ -1,3 +1,5 @@
+import React from "react";
+
 function StudyPlan() {
 
     return(
@@ -7,4 +9,4 @@ function StudyPlan() {
     );
 }
 
-export default StudyPlan
+export default StudyPlan;

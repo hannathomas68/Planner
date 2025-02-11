@@ -1,3 +1,5 @@
+import React from "react";
+
 function Encouragement() {
 
     return(
@@ -7,4 +9,4 @@ function Encouragement() {
     );
 }
 
-export default Encouragement
+export default Encouragement;
