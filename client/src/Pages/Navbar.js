@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom"; // ChatGPT
+
 function Navbar(){
 
     return(
         <nav>
             <ul>
-                <li><a href="Home.js">Home</a></li>
-                <li><a href="Calendar.js">Calendar</a></li>
-                <li><a href="Timer.js">Timer</a></li>
-                <li><a href="Encouragement.js">Encouragement</a></li>
-                <li><a href="StudyPlan.js">Study Plan</a></li>
-                <li><a href="Login.js">Login</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/calendar">Calendar</Link></li>
+                <li><Link to="/timer">Timer</Link></li>
+                <li><Link to="/encouragement">Encouragement</Link></li>
+                <li><Link to="/studyplan">Study Plan</Link></li>
+                <li><Link to="/login">Login</Link></li>
             </ul>
         </nav>
     );

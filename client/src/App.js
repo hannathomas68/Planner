@@ -1,4 +1,4 @@
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // ChatGPT
 
 import Navbar from './Pages/Navbar';
 import Home from './Pages/Home';
@@ -10,15 +10,17 @@ import Login from './Pages/Login';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar/>
-      <Home/>
-      <Calendar/>
-      <Timer/>
-      <Encouragement/>
-      <StudyPlan/>
-      <Login/>
-    </>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/calendar" element={<Calendar/>}/>
+        <Route path="/timer" element={<Timer/>}/>
+        <Route path="/encouragement" element={<Encouragement/>}/>
+        <Route path="/studyplan" element={<StudyPlan/>}/>
+        <Route path="/login" element={<Login/>}/>
+      </Routes>
+    </Router>
   );
 }
 
