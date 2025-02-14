@@ -1,0 +1,27 @@
+.navbar {
+    width: 170px;
+    height: 100vh; 
+    background-color: black;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Fixed to the left */
+  }
+  
+  .navbar ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+  }
+  
+  .navbar li {
+    padding: 15px 0;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .navbar a:hover {
+    background-color: darkgray;
+  }
