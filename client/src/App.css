@@ -1,11 +1,10 @@
 .app {
-    display: flex;
-    height: 100vh; /* Full height */
-  }
+  display: flex;
+  height: 100vh; /* Full height */
+}
   
-  .page {
-    margin-left: 210px; /* Leave space for navbar */
-    padding: 20px;
-    flex-grow: 1; /* Takes up remaining space */
-  }
-  
+.page {
+  margin-left: 210px; /* Leave space for navbar */
+  padding: 20px;
+  flex-grow: 1; /* Takes up remaining space */
+}
