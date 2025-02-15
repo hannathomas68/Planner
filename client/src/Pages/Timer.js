@@ -3,9 +3,9 @@ import "./Timer.css";
 
 const Timer = () => {
 
-    const STUDY_TIME = 3;
-    const SHORT_TIME = 1;
-    const LONG_TIME = 2;
+    const STUDY_TIME = 10;
+    const SHORT_TIME = 2;
+    const LONG_TIME = 5;
 
     const [secRemaining, setSecRemaining] = useState(STUDY_TIME);
     const [isRunning, setIsRunning] = useState(false);
@@ -18,56 +18,45 @@ const Timer = () => {
             timer = setInterval(() => {
                 setSecRemaining((prevSec) => {
                     if (prevSec === 0) {
-                        handleIncrementChange();
+                        if (incrementType === "study") {
+                            if (sessionCount < 2) {
+                                setIncrementType("short");
+                                setSecRemaining(SHORT_TIME);
+                                setSessionCount(prev => prev + 1)
+                            }
+                            else {
+                                setIncrementType("long");
+                                setSecRemaining(LONG_TIME);
+                                setSessionCount(0);
+                            }
+                        }
+                        else {
+                            setIncrementType("study");
+                            setSecRemaining(STUDY_TIME);
+                        }
+                        setIsRunning(false);
                     }
-                    return prevSec - 1;
+                    return prevSec > 0 ? prevSec - 1 : 0;
                 });
             }, 1000);
         }
-        else if (!isRunning && secRemaining !== 0) {
-            clearInterval(timer);
-        }
         return () => clearInterval(timer);
-    }, [isRunning, secRemaining]
+    }, [isRunning, incrementType, sessionCount]
     );
 
-    const handleIncrementChange = () => {
-        if (incrementType === "study") {
-            if (sessionCount < 3) {
-                setIncrementType("short");
-                setSecRemaining(SHORT_TIME);
-            }
-            else {
-                setIncrementType("long");
-                setSecRemaining(LONG_TIME);
-                setSessionCount(0);
-            }
-            setSessionCount(prev => prev + 1);
-        }
-        else {
-            setIncrementType("study");
+    const handleIncrementSelect = (type) => {
+        setIsRunning(false);
+        setIncrementType(type);
+        if (type === "study") {
             setSecRemaining(STUDY_TIME);
         }
-
-        setIsRunning(false);
-    }
-
-  /*   const startPauseTimer = () => {
-        setIsRunning(!isRunning);
-    }
-
-    const resetTimer = () => {
-        setIsRunning(false);
-        if (incrementType === "study") {
-            setSecRemaining(STUDY_TIME);
-        }
-        else if (incrementType === "short") {
+        else if (type === "short") {
             setSecRemaining(SHORT_TIME);
         }
-        else {
+        else if (type === "long") {
             setSecRemaining(LONG_TIME);
         }
-    } */
+    }
 
     const formatTime = (secs) => {
         const minutes = Math.floor(secs / 60);
@@ -79,9 +68,12 @@ const Timer = () => {
         <div className="timer">
             <h2>Pomodoro Timer</h2>
             <p className="time-display">{formatTime(secRemaining)}</p>
+            <div className="increment-buttons">
+                <button onClick={() => handleIncrementSelect("study")} className={incrementType === "study" ? "active" : ""}>Study</button>
+                <button onClick={() => handleIncrementSelect("short")} className={incrementType === "short" ? "active" : ""}>Short Break</button>
+                <button onClick={() => handleIncrementSelect("long")} className={incrementType === "long" ? "active" : ""}>Long Break</button>
+            </div>
             <button onClick={() => setIsRunning(!isRunning)} className="start-button">{isRunning ? "Pause" : "Start"}</button>
-            <button onClick={() => {setSecRemaining(STUDY_TIME); setIsRunning(false);}} className="reset-button">Reset</button>
-            <p>{`Current Session: ${incrementType.toUpperCase()}`}</p>
         </div>
     );
 };
