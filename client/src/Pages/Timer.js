@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 import "./Timer.css";
 
+
+const STUDY_TIME = 25 * 60;
+const SHORT_TIME = 5 * 60;
+const LONG_TIME = 15 * 60;
+
 const Timer = () => {
 
-    const STUDY_TIME = 10;
-    const SHORT_TIME = 2;
-    const LONG_TIME = 5;
+    
 
     const [secRemaining, setSecRemaining] = useState(STUDY_TIME);
     const [isRunning, setIsRunning] = useState(false);
