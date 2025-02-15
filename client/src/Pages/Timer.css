@@ -4,12 +4,12 @@
 }
 
 .time-display {
-    font-size: 2rem;
+    font-size: 5rem;
     font-weight: bold;
     margin: 20px 0;
 }
 
-button {
+.start-button, .reset-button {
     background-color: lightblue;
     color: black;
     padding: 10px 20px;
@@ -19,6 +19,6 @@ button {
     margin: 5px;
 }
 
-button :hover {
+.start-button:hover, .reset-button:hover {
     background-color: aqua;
 }
