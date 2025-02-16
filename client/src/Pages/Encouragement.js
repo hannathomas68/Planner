@@ -28,7 +28,7 @@ const Encouragement = () => {
         <div className="encouragement">
             <h2>Encouragement</h2>
             <blockquote>"{quote}"</blockquote>
-            <p>- {author}</p>
+            <p className="author">- {author}</p>
             <button onClick={fetchQuote}>New Quote</button>
             <p>Inspirational quotes provided by <a href="https://quotable.io/" target="_blank" rel="noopener noreferrer">Quotable API</a></p>
         </div>
