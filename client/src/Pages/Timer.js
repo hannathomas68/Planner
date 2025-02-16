@@ -8,8 +8,6 @@ const LONG_TIME = 15 * 60;
 
 const Timer = () => {
 
-    
-
     const [secRemaining, setSecRemaining] = useState(STUDY_TIME);
     const [isRunning, setIsRunning] = useState(false);
     const [incrementType, setIncrementType] = useState("study");
