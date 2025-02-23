@@ -6,12 +6,12 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
+.login form {
   display: flex;
   flex-direction: column;
 }
 
-input {
+.login input {
   padding: 8px;
   margin-top: 5px;
 }

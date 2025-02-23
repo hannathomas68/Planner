@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import axios from "axios"; // to make HTTP requests
 import "./Login.css";
 
-function Login() {
+const Login = ({onLogin}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios
+            .post("http://localhost:5001/auth/login", {username, password})
+            .then((response) => {
+                if (response.data.success) {
+                    onLogin(response.data.student); // pass student data to parent
+                }
+                else {
+                    alert("Login failed."); // error handling
+                }
+            });
     };
 
     return(

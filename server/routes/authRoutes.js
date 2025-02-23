@@ -16,7 +16,8 @@ router.post("/signup", async(req, res) => {
             if (err) {
                 return res.status(500).json({error: "Error enrolling user"});
             }
-            res.status(201).json({message: "User enrolled successfully"});
+            req.session.student = {id: result.insertId, username};
+            res.status(201).json({success: true, student: req.session.student});
         }
     );
 });
@@ -56,6 +57,16 @@ router.post("/logout", (req, res) => {
         }
         res.status(200).json({message: "Logged out successfully"});
     });
+});
+
+// Check authentication route
+router.get("/check-auth", (req, res) => {
+    if (req.session.student) {
+        res.json({loggedIn: true, student: req.session.student});
+    }
+    else {
+        res.json({loggedIn: false});
+    }
 });
 
 module.exports = router;
