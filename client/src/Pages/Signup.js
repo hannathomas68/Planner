@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import "./Signup.css";
 
-const Signup = ({onSignup}) => {
+const Signup = ({onAuthSuccess}) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -15,7 +15,7 @@ const Signup = ({onSignup}) => {
         .post("http://localhost:5001/auth/signup", {firstName, lastName, username, password})
         .then((response) => {
             if (response.data.success) {
-                onSignup(response.data.student); // pass student data to parent
+                onAuthSuccess(response.data.student); // pass student data to parent
             }
             else {
                 alert("Signup failed."); // error handling
