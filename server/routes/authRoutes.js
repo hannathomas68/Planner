@@ -5,21 +5,39 @@ const router = express.Router();
 
 // New User Signup Route
 router.post("/signup", async(req, res) => {
-    const {firstName, lastName, username, password} = req.body;
+    try {
+        const {firstName, lastName, username, password} = req.body;
 
-    // Hash password for security
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    db.query("INSERT INTO Student(firstName, lastName, username, password) VALUES(?, ?, ?, ?)", 
-        [firstName, lastName, username, hashedPassword],
-        (err, result) => {
+        // Check if username already exists
+        db.query("SELECT * FROM Student WHERE username = ?", [username], async (err, results) => {
             if (err) {
-                return res.status(500).json({error: "Error enrolling user"});
+                return res.status(500).json({ error: "Database error" });
             }
-            req.session.student = {id: result.insertId, username};
-            res.status(201).json({success: true, student: req.session.student});
-        }
-    );
+
+            if (results.length > 0) {
+                return res.status(400).json({ error: "Username already exists" });
+            }
+
+        // Hash password for security
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        db.query("INSERT INTO Student(firstName, lastName, username, password) VALUES(?, ?, ?, ?)", 
+            [firstName, lastName, username, hashedPassword],
+            (err, result) => {
+                if (err) {
+                    console.error("Database Insert Error:", err);
+                    return res.status(500).json({error: "Error enrolling user"});
+                }
+                req.session.student = {id: result.insertId, username};
+                res.status(201).json({success: true, student: req.session.student});
+            }
+        );
+    });
+    }
+    catch (error) {
+        console.error("Signup Error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
 });
 
 // Returning User Login Route
@@ -45,7 +63,12 @@ router.post("/login", (req, res) => {
 
         // Store user's information in session
         req.session.student = {id: student.id, username: student.username};
-        res.status(200).json({message: "Login successful", student: req.session.student});
+        req.session.save(err => {
+            if (err) {
+                return res.status(500).json({error: "Session error"});
+            }
+        })
+        res.status(200).json({success: true, message: "Login successful", student: req.session.student});
     });
 });
 
@@ -55,6 +78,7 @@ router.post("/logout", (req, res) => {
         if (err) {
             return res.status(500).json({error: "Logout failed"});
         }
+        res.clearCookie("connect.sid"); // Clear session cookie
         res.status(200).json({message: "Logged out successfully"});
     });
 });

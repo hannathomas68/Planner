@@ -17,7 +17,7 @@ const Auth = ({onAuthSuccess}) => {
         <div>
             {
                 isLogin ? (<Login onLogin={(student) => onAuthSuccess(student)} />) : 
-                (<Signup onSignup={(student) => onAuthSuccess(student)} />)
+                (<Signup onAuthSuccess={(student) => onAuthSuccess(student)} />)
             }
             <button onClick={toggleAuthMode}>{isLogin ? "Don't have an account? Sign up now!" : 
             "Already have an account? Login here!"}</button>

@@ -10,7 +10,7 @@ const Login = ({onLogin}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:5001/auth/login", {username, password})
+            .post("http://localhost:5001/auth/login", {username, password}, {withCredentials: true})
             .then((response) => {
                 if (response.data.success) {
                     onLogin(response.data.student); // pass student data to parent
