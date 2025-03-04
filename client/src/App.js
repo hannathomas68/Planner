@@ -47,7 +47,6 @@ function App() {
               <Route path="/timer" element={<Timer />} />
               <Route path="/encouragement" element={<Encouragement />} />
               <Route path="/studyplan" element={<StudyPlan />} />
-              {/* <Route path="/auth" element={<Auth onAuthSuccess={setStudent} />} /> */}
             </Routes>
           </div>
         </div>
