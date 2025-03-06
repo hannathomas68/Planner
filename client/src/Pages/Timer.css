@@ -1,6 +1,7 @@
 .timer {
     text-align: center;
     margin-top: 50px;
+    background-color: rgb(255, 224, 255);
 }
 
 .timer h2 {
