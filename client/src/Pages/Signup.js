@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./Signup.css";
+import TimeWiseLogo from '../Images/TimeWise.png';
 
 const Signup = ({onAuthSuccess}) => {
 
@@ -32,6 +33,7 @@ const Signup = ({onAuthSuccess}) => {
     return(
         <div className="auth-page">
             <div className="signup">
+                <img className = "logo-pic" src={TimeWiseLogo} alt="logo"/>
                 <h2>Welcome to TimeWise!</h2>
                 <h3>Create an account now.</h3>
                 <form onSubmit={handleSubmit}>

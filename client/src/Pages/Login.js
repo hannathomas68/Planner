@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios"; // to make HTTP requests
 import {useNavigate} from "react-router-dom";
 import "./Login.css";
+import TimeWiseLogo from '../Images/TimeWise.png';
 
 const Login = ({onLogin}) => {
 
@@ -32,6 +33,7 @@ const Login = ({onLogin}) => {
     return(
         <div className="auth-page">
             <div className="login">
+            <img className = "logo-pic" src={TimeWiseLogo} alt="logo"/>
                 <h2>Welcome back to TimeWise!</h2>
                 <h3>View your planner now.</h3>
                 <form onSubmit={handleSubmit}>
