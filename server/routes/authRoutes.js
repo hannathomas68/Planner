@@ -11,11 +11,11 @@ router.post("/signup", async(req, res) => {
         // Check if username already exists
         db.query("SELECT * FROM Student WHERE username = ?", [username], async (err, results) => {
             if (err) {
-                return res.status(500).json({ error: "Database error" });
+                return res.status(500).json({success: false, error: "Database error" });
             }
 
             if (results.length > 0) {
-                return res.status(400).json({ error: "Username already exists" });
+                return res.status(400).json({success: false, error: "Username already exists. Please try another." });
             }
 
         // Hash password for security

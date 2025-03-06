@@ -71,3 +71,13 @@
 .signup-button:hover {
     background-color: #228B22;
 }
+
+.alert-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffcccc;
+    color: rgb(171, 0, 0);
+    border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+}

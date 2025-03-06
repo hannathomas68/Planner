@@ -7,6 +7,7 @@ const Login = ({onLogin}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -19,8 +20,12 @@ const Login = ({onLogin}) => {
                     navigate("/");
                 }
                 else {
-                    alert("Login failed."); // error handling
+                    alert("Login failed."); 
                 }
+            })
+            .catch((error) => {
+                setErrorMessage("Credentials incorrect. Please try again."); // error handling
+                console.error("Error during signup:", error);
             });
     };
 
@@ -43,6 +48,7 @@ const Login = ({onLogin}) => {
                     
                     <button type="submit" className="login-button">Login</button>
                 </form>
+                {errorMessage && <div className="alert-box">{errorMessage}</div>}
             </div>
         </div>
     );

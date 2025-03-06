@@ -8,6 +8,7 @@ const Signup = ({onAuthSuccess}) => {
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,12 +17,14 @@ const Signup = ({onAuthSuccess}) => {
         .then((response) => {
             if (response.data.success) {
                 onAuthSuccess(response.data.student); // pass student data to parent
+                setErrorMessage("");
             }
             else {
-                alert("Signup failed."); // error handling
+                setErrorMessage(response.data.message || "Signup failed."); 
             }
         })
         .catch((error) => {
+            setErrorMessage("Username taken. Please try again."); // error handling
             console.error("Error during signup:", error);
         });
     };
@@ -56,6 +59,7 @@ const Signup = ({onAuthSuccess}) => {
 
                     <button type="submit" className="signup-button">Sign Up</button>
                 </form>
+                {errorMessage && <div className="alert-box">{errorMessage}</div>}
             </div>
         </div>
     );
