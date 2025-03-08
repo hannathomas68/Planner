@@ -40,12 +40,12 @@ const Login = ({onLogin}) => {
 
                     <div className="field">
                         <label>Username: </label>
-                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required/>
                     </div>
 
                     <div className="field">
                         <label>Password: </label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
                     
                     <button type="submit" className="login-button">Login</button>

@@ -4,6 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
+const eventRoutes = require("./routes/eventRoutes");
 
 const app = express();
 
@@ -18,7 +19,9 @@ app.use(session({
     cookie: {secure: false, httpOnly: true, sameSite: "lax"}
 }));
 
+// Routes
 app.use("/auth", authRoutes);
+app.use("/events", eventRoutes);
 
 app.get('/check-auth', (req, res) => {
     if (req.session.username) {
