@@ -1,0 +1,29 @@
+.home {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.home-heading {
+    font-size: 50px;
+    margin: 0;
+    color: crimson;
+    background-color:mistyrose;
+}
+
+.home p {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    color: crimson;
+    background-color:mistyrose;
+    
+}
+
+.todo-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}

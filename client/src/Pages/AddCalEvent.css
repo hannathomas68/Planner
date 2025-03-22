@@ -1,0 +1,34 @@
+.add-event {
+    background: #f4f4f49e;
+    padding: 10px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-event form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-event label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.add-event input, .add-event textarea {
+    padding: 10px;
+    margin: 5px;
+}
+
+.add-event button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #ffb431;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-event button:hover {
+    background: #ffab56;
+}
