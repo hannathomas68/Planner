@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import TimeWiseLogo from '../Images/TimeWise.png';
 
 const Navbar = ({student, onLogout}) => {
   return (
-    <nav className="navbar">
+      <nav className="navbar">
+      <img className = "logo-pic" src={TimeWiseLogo} alt="logo"/>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/calendar">Calendar</Link></li>
@@ -19,7 +21,7 @@ const Navbar = ({student, onLogout}) => {
           <li><Link to="/auth">Login</Link></li>
         )}
       </ul>
-    </nav>
+      </nav>
   );
 }
 
