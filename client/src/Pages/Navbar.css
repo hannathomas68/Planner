@@ -15,7 +15,7 @@
   max-width: 100%;
 }
 
-.navbar ul {
+.navbar ul, .logout-button {
   list-style: none; /* Remove bullets */
   padding: 0;
 }
@@ -24,12 +24,15 @@
   padding: 15px 0;
 }
 
-.navbar a {
-  color: white;
+.navbar a, .logout-button {
+  color: rgb(120, 206, 246);
   text-decoration: none;
   font-size: 20px;
 }
 
+.logout-button{
+  color: rgb(34, 124, 165);
+}
 .navbar a:hover {
   background-color: darkgray;
 }
