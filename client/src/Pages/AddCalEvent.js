@@ -29,6 +29,7 @@ const AddCalEvent = ({studentID, onEventAdded}) => {
             })
             .catch((error) => {
                 console.error("Error adding event:", error);
+                console.log("Student id:", studentID);
             });
     };
 

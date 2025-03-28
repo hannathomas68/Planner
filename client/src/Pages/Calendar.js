@@ -15,11 +15,13 @@ const Calendar = ({studentID}) => {
         fetchEvents();
     });
 
+    // Fetch events from backend
     const fetchEvents = () => {
         axios.get(`http://localhost:5001/events/${studentID}`)
         .then(response => setEvents(response.data.map(event => ({
             id: event.id,
             title: event.title,
+            description: event.description,
             date: event.date,
             startTime: event.startTime,
             endTime: event.endTime
@@ -27,12 +29,30 @@ const Calendar = ({studentID}) => {
         .catch(error => console.error("Error fetching events:", error));
     };
 
+    // Delete event
+    const handleEventDeletion = (eventInfo) => {
+        const eventId = eventInfo.event.id;
+
+        if (window.confirm("Are you sure you want to delete this event?")) {
+            axios.delete(`http://localhost:5001/events/delete/${eventId}`)
+            .then(response => {
+                if (response.data.success) {
+                    fetchEvents(); // Refresh events after a deletion
+                }
+            })
+            .catch(error => console.error("Error deleting event:", error));
+        }
+    };
+
     return(
         <div className="calendar">
             <h2 className="cal-heading">Calendar</h2>
             <div className="cal-wrapper">
                 <FullCalendar plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} 
-                    initialView="dayGridMonth" events={events} 
+                    initialView="dayGridMonth" 
+                    events={events} 
+                    editable={true}
+                    eventClick={handleEventDeletion} // Allows event to be deleted
                     headerToolbar={{
                         start: "today,prev,next",
                         center: "title",

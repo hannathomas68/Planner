@@ -43,7 +43,7 @@ function App() {
           <div className="page">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/calendar" element={<Calendar studentID={student.id}/>} />
               <Route path="/timer" element={<Timer />} />
               <Route path="/encouragement" element={<Encouragement />} />
               <Route path="/studyplan" element={<StudyPlan />} />
