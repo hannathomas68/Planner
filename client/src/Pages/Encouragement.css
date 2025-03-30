@@ -1,3 +1,13 @@
+.encouragementBkgrnd {
+    /* background: rgb(237, 209, 97); 
+    background: rgb(227, 194, 64); */
+    background: linear-gradient(to bottom,#d7c94e, #fce303);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: inline-block; 
+}
+
 .encouragement {
     text-align: center;
     margin-top: 50px;

@@ -1,3 +1,12 @@
+.timerBkgrnd {
+    /* background:rgb(249, 140, 212); */
+    background:#ce74b0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: inline-block;  
+}
+
 .timer {
     text-align: center;
     margin-top: 50px;
@@ -6,8 +15,8 @@
 
 .timer h2 {
     font-size: 3rem;
-    background-color: plum;
-    color: purple;
+    background-color: plum; 
+    color: purple; 
 }
 
 .time-display {
@@ -47,4 +56,18 @@
 
 .start-button:hover {
     background-color: forestgreen;
+}
+
+.clockBkgrnd {
+    background-color: #ce74b0; 
+    padding: 10px;              
+    border-radius: 10px;   
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.clock-pic {
+    height: auto;
+    max-width: 25%;
 }

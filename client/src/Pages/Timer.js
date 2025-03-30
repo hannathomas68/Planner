@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./Timer.css";
+import Clock from '../Images/Clock.jpg';
 
 
 const STUDY_TIME = 25 * 60;
@@ -65,18 +66,25 @@ const Timer = () => {
         return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     };
 
+   
     return(
-        <div className="timer">
-            <h2>Pomodoro Timer</h2>
-            <p className="time-display">{formatTime(secRemaining)}</p>
-            <div className="increment-buttons">
-                <button onClick={() => handleIncrementSelect("study")} className={incrementType === "study" ? "active" : ""}>Study</button>
-                <button onClick={() => handleIncrementSelect("short")} className={incrementType === "short" ? "active" : ""}>Short Break</button>
-                <button onClick={() => handleIncrementSelect("long")} className={incrementType === "long" ? "active" : ""}>Long Break</button>
+        <div className= "timerBkgrnd">
+            <div className="timer">
+                <h2>Pomodoro Timer</h2>
+                <p className="time-display">{formatTime(secRemaining)}</p>
+                <div className="increment-buttons">
+                    <button onClick={() => handleIncrementSelect("study")} className={incrementType === "study" ? "active" : ""}>Study</button>
+                    <button onClick={() => handleIncrementSelect("short")} className={incrementType === "short" ? "active" : ""}>Short Break</button>
+                    <button onClick={() => handleIncrementSelect("long")} className={incrementType === "long" ? "active" : ""}>Long Break</button>
+                </div>
+                <button onClick={() => setIsRunning(!isRunning)} className="start-button">{isRunning ? "Pause" : "Start"}</button>
             </div>
-            <button onClick={() => setIsRunning(!isRunning)} className="start-button">{isRunning ? "Pause" : "Start"}</button>
+            <div className= "clockBkgrnd">
+                <img className="clock-pic" src={Clock} alt="clockpic"/>
+            </div>
         </div>
     );
+
 };
 
 export default Timer;
