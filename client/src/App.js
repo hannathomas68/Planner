@@ -42,7 +42,7 @@ function App() {
           <Navbar student={student} onLogout={handleLogout}/> 
           <div className="page">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home studentID={student.id}/>} />
               <Route path="/calendar" element={<Calendar studentID={student.id}/>} />
               <Route path="/timer" element={<Timer />} />
               <Route path="/encouragement" element={<Encouragement />} />
