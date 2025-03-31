@@ -1,6 +1,4 @@
 .encouragementBkgrnd {
-    /* background: rgb(237, 209, 97); 
-    background: rgb(227, 194, 64); */
     background:#d7c94e;
     height: 100%;
     width: 100%;
@@ -69,11 +67,10 @@
     border-radius: 10px;   
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
 }
 
 .happy-pic {
     height: auto;
-    max-width: 40%;
+    max-width: 35%;
 }
