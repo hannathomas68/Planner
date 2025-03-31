@@ -1,7 +1,7 @@
 .encouragementBkgrnd {
     /* background: rgb(237, 209, 97); 
     background: rgb(227, 194, 64); */
-    background: linear-gradient(to bottom,#d7c94e, #fce303);
+    background:#d7c94e;
     height: 100%;
     width: 100%;
     display: flex;
@@ -61,4 +61,19 @@
 
 .encouragement a:hover {
     text-decoration: underline;
+}
+
+.happyBkgrnd {
+    background-color: #d7c94e; 
+    padding: 10px;              
+    border-radius: 10px;   
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.happy-pic {
+    height: auto;
+    max-width: 40%;
 }

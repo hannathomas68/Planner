@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./Encouragement.css";
+import Emoji from '../Images/Happy.jpg';
 
 const Encouragement = () => {
     const [quote, setQuote] = useState("");
@@ -33,9 +34,11 @@ const Encouragement = () => {
                 <button onClick={fetchQuote}>New Quote</button>
                 <p>Inspirational quotes provided by <a href="https://quotable.io/" target="_blank" rel="noopener noreferrer">Quotable API</a></p>
             </div>
+            <div className= "HappyBkgrnd">
+                <img className="happy-pic" src={Emoji} alt="happypic"/>
+            </div>
         </div>
     );
-
 };
 
 export default Encouragement;
