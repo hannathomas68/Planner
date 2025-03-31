@@ -75,4 +75,6 @@
 .happy-pic {
     height: auto;
     max-width: 35%;
+    display: block; 
+    margin: 0 auto;
 }
