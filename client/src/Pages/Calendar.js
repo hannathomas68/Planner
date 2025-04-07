@@ -55,6 +55,7 @@ const Calendar = ({studentID}) => {
     };
 
     return (
+        <div className= "calendarBkgrnd">
         <div className="calendar">
             <h2 className="cal-heading">Calendar</h2>
             <div className="cal-wrapper">
@@ -65,6 +66,7 @@ const Calendar = ({studentID}) => {
                     editable={true}
                     selectable={true}
                     selectMirror={true}
+                    eventBackgroundColor="orange"
                     eventClick={handleEventDeletion} // Allows event to be deleted after clicking it
                     headerToolbar={{
                         start: "today,prev,next",
@@ -99,6 +101,7 @@ const Calendar = ({studentID}) => {
                     </div>
                 </div>
             )}
+        </div>
         </div>
     );
 };
