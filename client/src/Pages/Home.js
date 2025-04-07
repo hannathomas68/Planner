@@ -35,17 +35,20 @@ const Home = ({studentID}) => {
     };
 
     return(
-        <div className="home">
-            <h2 className="home-heading">TimeWise</h2>
-            <p>Manage your time better and stay organized!</p>
-            <div className="todo-wrapper">
-                <FullCalendar plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} 
-                    initialView="timeGridDay"
-                    events={events}
-                    editable={false}/>
+        <div className= "homeBkgrnd">
+            <div className="home">
+                <h2 className="home-heading">TimeWise</h2>
+                <p>Manage your time better and stay organized!</p>
+                <div className="todo-wrapper">
+                    <FullCalendar plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} 
+                        initialView="timeGridDay"
+                        events={events}
+                        editable={false}/>
+                </div>
             </div>
         </div>
     );
 }
+
 
 export default Home;
