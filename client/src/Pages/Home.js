@@ -43,7 +43,8 @@ const Home = ({studentID}) => {
                     <FullCalendar plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} 
                         initialView="timeGridDay"
                         events={events}
-                        editable={false}/>
+                        editable={false}
+                    />
                 </div>
             </div>
         </div>
