@@ -1,0 +1,81 @@
+.studyPlan {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #bce0b5;
+    border-radius: 25px;
+}
+  
+.studyForm {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+  
+.studyForm input[type="text"],
+.studyForm input[type="date"],
+.studyForm input[type="time"],
+.studyForm input[type="datetime-local"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+  
+.checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+  
+.freeTimes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.addTime{
+    margin-top: 0.5rem;
+    padding: 10px 20px;
+    background-color: rgb(61, 171, 37);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+  
+.addTime:hover {
+    background-color: rgb(126, 214, 129);
+}
+
+.deleteTime {
+    background-color: transparent;
+    color: red;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.deleteTime:hover {
+    background-color: rgb(254, 154, 154);
+}
+  
+.submitButton {
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: rgb(22, 81, 9);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.submitButton:hover {
+    background-color: rgb(48, 110, 57);
+}
