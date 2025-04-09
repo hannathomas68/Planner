@@ -7,6 +7,7 @@ import axios from "axios";
 import moment from "moment";
 import AddCalEvent from "./AddCalEvent";
 import "./Calendar.css";
+import SeasonPic from '../Images/Seasons1.png';
 
 const Calendar = ({studentID}) => {
     const [events, setEvents] = useState([]);
@@ -102,6 +103,9 @@ const Calendar = ({studentID}) => {
                 </div>
             )}
         </div>
+        <p>
+            <center><img className = "calendar-pic" src={SeasonPic} alt="calendarPic"/></center>
+        </p>
         </div>
     );
 };

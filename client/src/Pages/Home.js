@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import axios from "axios";
 import moment from "moment";
 import "./Home.css";
+import BookPic from '../Images/Books2.jpg';
 
 const Home = ({studentID}) => { 
     const [events, setEvents] = useState([]);
@@ -47,6 +48,9 @@ const Home = ({studentID}) => {
                     />
                 </div>
             </div>
+            <p>
+                <center><img className = "home-pic" src={BookPic} alt="homePic"/></center>
+            </p>
         </div>
     );
 }
