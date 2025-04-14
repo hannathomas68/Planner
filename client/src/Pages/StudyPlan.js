@@ -1,31 +1,97 @@
 import React, {useState, useEffect} from "react";
+import axios from "axios";
 import "./StudyPlan.css";
 
-const StudyPlan = () => {
+const StudyPlan = ({studentID}) => {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [startTime, setStartTime] = useState("");
     const [studyMethods, setStudyMethods] = useState([]);
     const [timesAvailable, setTimesAvailable] = useState([{start: "", end: ""}]);
+    const [generatedPlan, setGeneratedPlan] = useState([]);
 
+    // Change preferred study method selection
     const handleMethodChange = (method) => {
         setStudyMethods((prev) => 
             prev.includes(method) ? prev.filter((m) => m !== method) : [...prev, method]);
     };
 
+    // Change free time range
     const handleFreeTimeChange = (index, field, value) => {
         const updated = [...timesAvailable];
         updated[index][field] = value;
         setTimesAvailable(updated);
     };
 
+    // Add another blank free time range
     const addFreeTimeBlock = () => {
         setTimesAvailable([...timesAvailable, {start: "", end: ""}]);
     };
 
+    // Generate study sessions
+    const generatePlan = () => {
+        const sessions = [];
+        const methodCount = studyMethods.length;
+        const minSessionLength = 30;
+
+        if (methodCount === 0) return sessions;
+
+        timesAvailable.forEach((block) => {
+            const start = new Date(block.start);
+            const end = new Date(block.end);
+            const totalMinutes = (end - start) / 60000; // msec to min
+
+            // Split available times based on preferred study methods
+            const splitMinutes = Math.floor(totalMinutes / methodCount);
+            let sessionStart = new Date(start);
+
+            studyMethods.forEach((method) => {
+                const sessionEnd = new Date(sessionStart.getTime() + splitMinutes * 60000);
+                sessions.push({
+                    method,
+                    start: sessionStart.toLocaleString(),
+                    end: sessionEnd.toLocaleString()
+                });
+
+                sessionStart = sessionEnd;
+            });
+        });
+
+        return sessions;
+    }
+
+    const clearForm = () => {
+        setTitle("");
+        setDate("");
+        setStartTime("");
+        setStudyMethods([]);
+        setTimesAvailable([{ start: "", end: "" }]);
+        setGeneratedPlan([]);
+      };
+
+    const addTestInfo = () => {
+        // Add test info to db and calendar
+        axios
+            .post("http://localhost:5001/events/add", {studentId: studentID, title, description: null, date, startTime, endTime: null})
+            .then((response) => {
+                if (response.data.success) {
+                }
+                else {
+                    alert("Adding event failed.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error adding event:", error);
+                console.log("Student id:", studentID);
+            });
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log({title, date, startTime, studyMethods, timesAvailable});
+
+        const plan = generatePlan();
+        setGeneratedPlan(plan);
     };
     
     return(
@@ -82,13 +148,29 @@ const StudyPlan = () => {
                     </div>
                     ))}
 
-                    <button type="button" onClick={addFreeTimeBlock} className="addTime">Add Time</button>
+                    <button type="button" onClick={addFreeTimeBlock} className="addTime">Add Time Frame</button><br/><br/>
 
-                    <br/>
+                    <button type="button" onClick={addTestInfo} className="addTestInfoButton">Add Test Info to Calendar</button><br/>
+
+                    <button type="button" onClick={clearForm} className="clearButton">Clear All</button><br/>
+
                     <button type="submit" className="submitButton">Generate Study Plan</button>
                     
                 </form>
             </div>
+
+            {generatedPlan.length > 0 && (
+                <div className="generatedPlan">
+                    <h3>Generated Study Plan</h3>
+                    <ul>
+                        {generatedPlan.map((session, idx) => (
+                            <li key={idx}>
+                                <strong>{session.method}</strong>: {session.start} to {session.end}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 }

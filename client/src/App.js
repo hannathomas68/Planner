@@ -46,7 +46,7 @@ function App() {
               <Route path="/calendar" element={<Calendar studentID={student.id}/>} />
               <Route path="/timer" element={<Timer />} />
               <Route path="/encouragement" element={<Encouragement />} />
-              <Route path="/studyplan" element={<StudyPlan />} />
+              <Route path="/studyplan" element={<StudyPlan studentID={student.id}/>} />
             </Routes>
           </div>
         </div>

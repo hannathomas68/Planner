@@ -37,7 +37,9 @@
     margin-top: 0.5rem;
 }
 
-.addTime{
+.addTime,
+.addTestInfoButton,
+.clearButton {
     margin-top: 0.5rem;
     padding: 10px 20px;
     background-color: rgb(61, 171, 37);
@@ -48,7 +50,9 @@
     font-size: 1rem;
 }
   
-.addTime:hover {
+.addTime:hover,
+.addTestInfoButton:hover,
+.clearButton:hover {
     background-color: rgb(126, 214, 129);
 }
 
@@ -64,7 +68,15 @@
 .deleteTime:hover {
     background-color: rgb(254, 154, 154);
 }
-  
+
+.addTestInfoButton{
+    background-color: rgb(51, 135, 32);
+}
+
+.clearButton{
+    background-color: rgb(36, 109, 19);
+}
+
 .submitButton {
     margin-top: 2rem;
     padding: 10px 20px;
