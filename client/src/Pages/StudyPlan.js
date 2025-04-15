@@ -162,7 +162,7 @@ const StudyPlan = ({studentID}) => {
 
             {generatedPlan.length > 0 && (
                 <div className="generatedPlan">
-                    <h3>Generated Study Plan</h3>
+                    <h3>Generated Study Plan - Please Take a Screenshot</h3>
                     <ul>
                         {generatedPlan.map((session, idx) => (
                             <li key={idx}>
