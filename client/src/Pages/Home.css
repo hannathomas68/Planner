@@ -1,5 +1,5 @@
 .homeBkgrnd {
-    background-color:rgb(242, 105, 90);
+    background: linear-gradient(to bottom, rgb(250, 138, 126),  rgb(198, 40, 23));
     height: 150%;
     width: 100%;
     display: flex;

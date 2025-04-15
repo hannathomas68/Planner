@@ -1,5 +1,5 @@
 .calendarBkgrnd{
-    background-color:rgb(247, 184, 89);
+    background: linear-gradient(to bottom, rgb(250, 210, 151),  rgb(244, 148, 5));
     height: 155%;
     width: 100%;
     display: flex;
@@ -55,7 +55,7 @@
 
 .add-event-btn {
     font-size: 30px;
-    background-color: #da9318;
+    background-color: rgb(250, 191, 103);
     border: none;
     cursor: pointer;
 }
