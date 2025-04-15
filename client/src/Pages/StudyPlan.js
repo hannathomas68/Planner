@@ -95,6 +95,7 @@ const StudyPlan = ({studentID}) => {
     };
     
     return(
+        <div className="studyPlanBckgrnd">
         <div className="studyPlan">
             <h2>Study Plan Generator</h2>
 
@@ -171,6 +172,7 @@ const StudyPlan = ({studentID}) => {
                     </ul>
                 </div>
             )}
+        </div>
         </div>
     );
 }
