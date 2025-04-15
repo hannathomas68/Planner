@@ -24,7 +24,7 @@ const Calendar = ({studentID}) => {
 
                         return {
                             id: event.id,
-                            title: event.title,
+                            title: `${event.title} - ${event.description}`,
                             description: event.description,
                             start: startDateTime,
                             end: endDateTime,
@@ -90,7 +90,7 @@ const Calendar = ({studentID}) => {
                                 .then(response => {
                                     const newEvents = response.data.map(event => ({
                                         id: event.id,
-                                        title: event.title,
+                                        title: `${event.title} - ${event.description}`,
                                         description: event.description,
                                         start: moment(`${event.date} ${event.startTime}`, "YYYY-MM-DD hh:mm A").format("YYYY-MM-DDTHH:mm:ss"),
                                         end: moment(`${event.date} ${event.endTime}`, "YYYY-MM-DD hh:mm A").format("YYYY-MM-DDTHH:mm:ss"),
